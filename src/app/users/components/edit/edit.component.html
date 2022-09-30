@@ -1,0 +1,57 @@
+<div class="container">
+  <h1 *ngIf="!isEditPage">Add a new user Here</h1>
+  <h1 *ngIf="isEditPage">
+    You Now Editing User With id <span class="text-danger">{{ user.id }}</span>
+  </h1>
+  <div>
+    <form [formGroup]="formDataTable" class="mb-5">
+      <div class="col-6">
+        <div class="">
+          <label for="">Enter Your First Name</label>
+          <div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="First name"
+              formControlName="firstName"
+            />
+          </div>
+        </div>
+        <div>
+          <label for="">Enter Your Last Name</label>
+          <div class="">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Last name"
+              formControlName="lastName"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="">Enter Your Email Name</label>
+          <div class="">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Email"
+              formControlName="email"
+            />
+          </div>
+        </div>
+
+        <div class="mt-2" *ngIf="isEditPage">
+          <button class="button-69 col-3" (click)="onClickSaveEditUser()">
+            Save Edit
+          </button>
+        </div>
+        <div *ngIf="!isEditPage" class="mt-2">
+          <button class="button-69 col-3 blue" (click)="onClickAddUser()">
+            Add User
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

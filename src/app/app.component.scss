@@ -1,0 +1,36 @@
+ul {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.center {
+  margin-left: 300px;
+  margin-bottom: 50px;
+}
+ul li {
+  cursor: pointer;
+  padding: 5px 30px;
+  border-radius: 18px;
+  width: 110px;
+  color: white;
+  text-align: center;
+}
+ul .users {
+  background-color: #009879;
+}
+ul .userss {
+  background-color: #1d5e22;
+}
+ul .files {
+  background-color: #985800;
+}
+span {
+  color: chocolate;
+  font-size: 54px;
+  font-weight: bold;
+}
+.name {
+  color: #009879;
+}

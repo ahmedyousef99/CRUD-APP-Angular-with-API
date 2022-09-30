@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="containerr">
+    <button class="button-40" role="button" routerLink="/users/add">
+      New Record
+    </button>
+    <button
+      class="button-40 delete-btn mx-3"
+      role="button"
+      (click)="onClickSelectedAll()"
+    >
+      Delete the selected
+    </button>
+    <div class="tablee">
+      <table
+        border="1"
+        [cellPadding]="4"
+        [cellSpacing]="2"
+        class="styled-table"
+      >
+        <thead>
+          <tr>
+            <th scope="col" class="d-flex align-items-center">
+              <input
+                class="d-inline-block"
+                id="select-all"
+                type="checkbox"
+                (click)="onSelectAll($event.target.checked)"
+              />
+              <label class="mx-1 my-0 trans w-100" for="select-all"
+                >Select
+              </label>
+              <span>All</span>
+            </th>
+            <th scope="col">Image</th>
+            <th scope="col">id</th>
+            <th scope="col">Full name</th>
+            <th scope="col">phone</th>
+            <th scope="col">email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listOfUsers; let i = index">
+            <td>
+              <input
+                type="checkbox"
+                (click)="onSelect($event.target.checked, i)"
+                [checked]="checkedItems[i]"
+              />
+              <label
+                class="checkedd"
+                class="mx-2"
+                [ngClass]="{ green: checkedItems[i] }"
+              >
+                Check</label
+              >
+            </td>
+            <td><img src="{{ item.avatar }}" alt="" width="50" /></td>
+            <td>{{ item.id }}</td>
+
+            <td>{{ item.first_name }} {{ item.last_name }}</td>
+            <td>{{ item.email }}</td>
+
+            <td>
+              <button
+                class="button-69"
+                role="button  "
+                (click)="onDeleteClick(item.id)"
+              >
+                Delete
+              </button>
+              <button
+                routerLink="/users/edit/{{ item.id }}"
+                class="button-68 mx-2"
+                role="button"
+              >
+                Edit
+              </button>
+
+              <button
+                class="button-69 blue"
+                role="button"
+                routerLink="/users/details/{{ item.id }}"
+              >
+                Details
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
